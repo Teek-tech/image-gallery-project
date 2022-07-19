@@ -2,6 +2,9 @@
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js & Typescript to develop a photo gallery app via supabase api - an alternative to firebase. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
+![project_img](https://user-images.githubusercontent.com/19340486/179650590-d51834e4-3789-4fa4-b65f-08e5dcdf3f43.png)
+
+
 ## Deploy your own
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
