@@ -1,4 +1,4 @@
-# PHOTO GALLERY APP using Next.js + Typescript + Tailwind CSS 
+# Photo Gallery App with Next.js + Supabase + Typescript + Tailwind CSS 
 
 This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js & Typescript to develop a photo gallery app via supabase api - an alternative to firebase. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
