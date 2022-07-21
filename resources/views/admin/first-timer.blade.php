@@ -642,14 +642,14 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" placeholder="Enter First Name">
+                                            <input type="text" class="form-control input-lg" name="first_name" placeholder="Enter First Name">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" placeholder="Enter Last Name">
+                                            <input type="text" class="form-control input-lg" name="last_name" placeholder="Enter Last Name">
                                         </div>
                                     </div>
                                 </div>
@@ -660,7 +660,7 @@
                                         <h2>Select Gender</h2>
                                     </div>
                                     <div class="bootstrap-select fm-cmp-mg">
-                                        <select class="selectpicker ">
+                                        <select class="selectpicker " name="gender">
                                                 <option>Male</option>
                                                 <option>Female</option>
                                             </select>
@@ -672,7 +672,7 @@
                                             <h2>Select Age</h2>
                                         </div>
                                         <div class="nk-int-st">
-                                            <select class="selectpicker">
+                                            <select class="selectpicker" name="age">
                                                 <option>18</option>
                                                 <option>19</option>
                                                 <option>20</option>
@@ -689,7 +689,7 @@
                                             <h2>Marital Status</h2>
                                         </div>
                                         <div class="nk-int-st">
-                                            <select class="selectpicker">
+                                            <select class="selectpicker" name="marital_status">
                                                 <option>Married</option>
                                                 <option>Single</option>
                                             </select>
@@ -701,28 +701,28 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" placeholder="Residential Address">
+                                            <input type="text" class="form-control input-lg" name="residence" placeholder="Residential Address">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" placeholder="Nearest Bus-Stop">
+                                            <input type="text" class="form-control input-lg" name="bustop" placeholder="Nearest Bus-Stop">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" placeholder="Business/Office/School Address">
+                                            <input type="text" class="form-control input-lg" name="bos" placeholder="Business/Office/School Address">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" placeholder="Occupation">
+                                            <input type="text" class="form-control input-lg" name="occupation" placeholder="Occupation">
                                         </div>
                                     </div>
                                 </div>
@@ -733,7 +733,7 @@
                                         <label>When should we visit you?</label>
                                         <div class="input-group date nk-int-st">
                                             <span class="input-group-addon"></span>
-                                            <input type="text" class="form-control input-lg" value="03/19/2018">
+                                            <input type="text" class="form-control input-lg" name="visit" value="03/19/2018">
                                         </div>
                                     </div>
                                 </div>
@@ -741,7 +741,7 @@
                                     <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
                                         <label>Mobile Number</label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" placeholder="Enter Phone Number">
+                                            <input type="text" class="form-control input-lg" name="mobile" placeholder="Enter Phone Number">
                                         </div>
                                     </div>
                                 </div>
@@ -749,7 +749,7 @@
                                     <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
                                         <label>Email address</label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" placeholder="Enter Email">
+                                            <input type="text" class="form-control input-lg" name="email" placeholder="Enter Email">
                                         </div>
                                     </div>
                                 </div>
@@ -758,7 +758,7 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-lg" placeholder="Invited by...">
+                                        <input type="text" class="form-control input-lg" name="invited" placeholder="Invited by...">
                                     </div>
                                 </div>
                             </div>
