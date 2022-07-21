@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/first-timer', function () {
+    return view('admin.first-timer');
+});
 
 Auth::routes();
 
