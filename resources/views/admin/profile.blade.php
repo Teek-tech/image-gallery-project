@@ -4,94 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Data Table | Notika - Notika Admin Template</title>
+    <title>PHZONE3 | Admin | First Timers Ministry</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <!-- Google Fonts
-		============================================ -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-        <!-- Bootstrap CSS
-            ============================================ -->
-        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-        <!-- font awesome CSS
-            ============================================ -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <!-- owl.carousel CSS
-            ============================================ -->
-            <!-- meanmenu CSS
-            ============================================ -->
-        <link rel="stylesheet" href="css/meanmenu/meanmenu.min.css">
-        <!-- main CSS
-            ============================================ -->
-        <link rel="stylesheet" href="css/main.css">
-        <!-- style CSS
-            ============================================ -->
-        <link rel="stylesheet" href="css/style.css">
-         <!-- Data Table JS
-		============================================ -->
-        <link rel="stylesheet" href="css/jquery.dataTables.min.css">
-        <!-- responsive CSS
-            ============================================ -->
-        <link rel="stylesheet" href="css/responsive.css">
-         <!-- animate CSS
-            ============================================ -->
-            <link rel="stylesheet" href="css/animate.css">
-            <!-- Notika icon CSS
-            ============================================ -->
-        <link rel="stylesheet" href="css/notika-custom-icon.css">
-         <!-- bootstrap select CSS
-            ============================================ -->
-            <link rel="stylesheet" href="css/bootstrap-select/bootstrap-select.css">
-                <!-- wave CSS
-            ============================================ -->
-        <link rel="stylesheet" href="css/wave/waves.min.css">
-        <link rel="stylesheet" href="css/wave/button.css">
-        <style>
-  
-
-.form-control:focus {
-    box-shadow: none;
-    border-color: #BA68C8
-}
-
-.profile-button {
-    background: rgb(99, 39, 120);
-    box-shadow: none;
-    border: none
-}
-
-.profile-button:hover {
-    background: #682773
-}
-
-.profile-button:focus {
-    background: #682773;
-    box-shadow: none
-}
-
-.profile-button:active {
-    background: #682773;
-    box-shadow: none
-}
-
-.back:hover {
-    color: #682773;
-    cursor: pointer
-}
-
-.labels {
-    font-size: 11px
-}
-
-.add-experience:hover {
-    background: #BA68C8;
-    color: #fff;
-    cursor: pointer;
-    border: solid 1px #BA68C8
-}
-        </style>
+ @include('layouts.head')
 </head>
 
 <body>
@@ -139,44 +55,108 @@
                         {{-- <div class="invoice-img">
                             <img src="img/logo/logo.png" alt="" />
                         </div> --}}
+                        
+                        @if(session()->has('success'))
+                        <div class="alert alert-success alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong>Glorrrrrry!</strong> {{ session()->get('success') }}
+                          </div>
+                        @endif
                         <div class="invoice-hds-pro">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="invoice-cmp-ds ivc-frm">
-                                        <div class="invoice-frm">
-                                            <span>Invoice from</span>
+                            <form action="{{route('update-profile')}}" method="POST">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <div class="nk-int-mk sl-dp-mn">
+                                            <h2>Select Title</h2>
                                         </div>
-                                        <div class="comp-tl">
-                                            <h2>David Designs LLC</h2>
-                                            <p>44, Qube Towers uttara Media City, Dubai, Bangladesh</p>
-                                        </div>
-                                        <div class="cmp-ph-em">
-                                            <span>01962067309</span>
-                                            <span>David@notika.com</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="invoice-cmp-ds ivc-to">
-                                        <div class="invoice-frm">
-                                            <span>Invoice to</span>
-                                        </div>
-                                        <div class="comp-tl">
-                                            <h2>Mallinda Hollaway</h2>
-                                            <p>10098 ABC Towers Uttara Silicon Oasis, Dubai, Bangladesh.</p>
-                                        </div>
-                                        <div class="cmp-ph-em">
-                                            <span>01955239099</span>
-                                            <span>Mall@notika.com</span>
+                                        <div class="bootstrap-select fm-cmp-mg">
+                                            <select class="selectpicker" name="title" required>
+                                                @if (!$user->title)
+                                                <option></option>
+                                                <option>Pastor</option>
+                                                <option>Deacon</option>
+                                                <option>Brother</option>
+                                                <option>Sister</option>
+                                                @else
+                                                <option selected>{{$user->title}}</option>
+                                                @endif
+                                                
+                                                </select>
                                         </div>
                                     </div>
-                                </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <div class="nk-int-mk sl-dp-mn">
+                                            <h2>Select Office</h2>
+                                        </div>
+                                        <div class="bootstrap-select fm-cmp-mg">
+                                            <select class="selectpicker " name="position" required>
+                                                @if (!$user->position)
+                                                <option></option>
+                                                <option>Group Pastor</option>
+                                                <option>First Timer Ministry(officer)</option>
+                                                <option>First Timer Ministry (follow-up)</option>
+                                                @else
+                                                <option selected>{{$user->position}}</option>
+                                                @endif
+                                                
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <div class="nk-int-mk sl-dp-mn">
+                                            <h2>Select Church</h2>
+                                        </div>
+                                        <div class="bootstrap-select fm-cmp-mg">
+                                            <select class="selectpicker " name="church" required>
+                                                @if (!$user->church)
+                                                <option></option>
+                                                <option>Limitless Church</option>
+                                                @else
+                                                <option selected>{{$user->church}}</option>
+                                                @endif
+                                             </select>
+                                        </div>
+                                    </div>
                                 
-                            </div>
-                            <div class="d-flex" style="width: 50%; background-color:red;">
-                                <button class="btn btn-primary">Hello</button>
-                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-lg" name="first_name" value="{{$user->first_name}}" placeholder="Enter First Name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-lg" name="last_name" value="{{$user->last_name}}" placeholder="Enter Last Name" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-lg" readonly name="email" value="{{$user->email}}" placeholder="Enter Email" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="nk-int-st">
+                                                <input type="text" class="form-control input-lg" name="phone" value="{{$user->phone}}" placeholder="Enter phone" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             
+                                <div class="update-data">
+                                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                                </div>
+                            </form>
                         </div>
                         <div class="row">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">

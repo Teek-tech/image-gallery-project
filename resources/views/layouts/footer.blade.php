@@ -12,3 +12,32 @@
     </div>
 </div>
 <!-- End Footer area-->
+
+ <!-- jquery
+		============================================ -->
+        <script src="{{asset('js/jquery-1.12.4.min.js')}}"></script>
+        <!-- bootstrap JS
+            ============================================ -->
+        <script src="{{asset('js/bootstrap.min.js')}}"></script>
+        <!-- wow JS
+            ============================================ -->
+             <!-- bootstrap select JS
+            ============================================ -->
+        <script src="{{asset('js/bootstrap-select/bootstrap-select.js')}}"></script>
+             <!-- meanmenu JS
+            ============================================ -->
+        <script src="{{asset('js/meanmenu/jquery.meanmenu.js')}}"></script>
+        <!-- autosize JS
+            ============================================ -->
+            <script src="{{asset('js/autosize.min.js')}}"></script>
+              <!-- Data Table JS
+            ============================================ -->
+        <script src="{{asset('js/data-table/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('js/data-table/data-table-act.js')}}"></script>
+        <!-- main JS
+            ============================================ -->
+        <script src="{{asset('js/main.js')}}"></script>
+         <!-- datapicker JS
+            ============================================ -->
+            <script src="{{asset('js/datapicker/bootstrap-datepicker.js')}}"></script>
+            <script src="{{asset('js/datapicker/datepicker-active.js')}}"></script>

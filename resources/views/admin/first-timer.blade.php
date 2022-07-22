@@ -4,54 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Form Element | Notika - Notika Admin Template</title>
+    <title>PHZONE3 | Admin | First Timers Ministry</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <!-- font awesome CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <!-- owl.carousel CSS
-		============================================ -->
-        <!-- meanmenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/meanmenu/meanmenu.min.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/main.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/responsive.css">
-     <!-- animate CSS
-		============================================ -->
-        <link rel="stylesheet" href="css/animate.css">
-        <!-- Notika icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/notika-custom-icon.css">
-     <!-- bootstrap select CSS
-		============================================ -->
-        <link rel="stylesheet" href="css/bootstrap-select/bootstrap-select.css">
-            <!-- wave CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/wave/waves.min.css">
-    <link rel="stylesheet" href="css/wave/button.css">
-    <style>
-        .submit {
-            padding: 10px !important;
-            width: 200px;
-        }
-    </style>
+    @include('layouts.head')
 </head>
 
 <body>
@@ -73,7 +29,7 @@
 										<i class="notika-icon notika-form"></i>
 									</div>
 									<div class="breadcomb-ctn">
-										<h2>Hi, Pastor Lily</h2>
+										<h2>Hi, Pastor Dayo</h2>
 										<p>Welcome to <span class="bread-ntd">First Timers Ministry</span></p>
 									</div>
 								</div>
@@ -94,7 +50,14 @@
     <div class="form-element-area">
         <div class="container">
             <div class="row">
-                <form action="">
+                @if(session()->has('success'))
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Glorrrrrry!</strong> {{ session()->get('success') }}
+                  </div>
+                @endif
+                <form action="{{route('save-first-timer')}}" method="POST">
+                    @csrf
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-element-list">
                             <div class="basic-tb-hd">
@@ -115,15 +78,25 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" name="first_name" placeholder="Enter First Name">
+                                            <input type="text" class="form-control input-lg" name="first_name" placeholder="Enter First Name" value="{{ old('first_name') }}" required>
                                         </div>
+                                        @error('first_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" name="last_name" placeholder="Enter Last Name">
+                                            <input type="text" class="form-control input-lg" name="last_name" placeholder="Enter Last Name" value="{{ old('last_name') }}" required>
                                         </div>
+                                        @error('last_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -133,11 +106,17 @@
                                         <h2>Select Gender</h2>
                                     </div>
                                     <div class="bootstrap-select fm-cmp-mg">
-                                        <select class="selectpicker " name="gender">
+                                        <select class="selectpicker " name="gender" required>
+                                                <option></option>
                                                 <option>Male</option>
                                                 <option>Female</option>
                                             </select>
                                     </div>
+                                    @error('gender')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     <div class="form-group">
@@ -145,7 +124,8 @@
                                             <h2>Select Age</h2>
                                         </div>
                                         <div class="nk-int-st">
-                                            <select class="selectpicker" name="age">
+                                            <select class="selectpicker" name="age" required>
+                                                <option></option>
                                                 <option>18</option>
                                                 <option>19</option>
                                                 <option>20</option>
@@ -154,6 +134,11 @@
                                                 <option>23</option>
                                             </select>
                                         </div>
+                                        @error('age')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -162,11 +147,17 @@
                                             <h2>Marital Status</h2>
                                         </div>
                                         <div class="nk-int-st">
-                                            <select class="selectpicker" name="marital_status">
+                                            <select class="selectpicker" name="marital_status" required>
+                                                <option></option>
                                                 <option>Married</option>
                                                 <option>Single</option>
                                             </select>
                                         </div>
+                                        @error('marital_status')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -174,29 +165,49 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" name="residence" placeholder="Residential Address">
+                                            <input type="text" class="form-control input-lg" name="residence" placeholder="Residential Address" value="{{ old('residence') }}" required>
                                         </div>
+                                        @error('residence')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" name="bustop" placeholder="Nearest Bus-Stop">
+                                            <input type="text" class="form-control input-lg" name="bustop" placeholder="Nearest Bus-Stop" value="{{ old('bustop') }}" required>
                                         </div>
+                                        @error('bustop')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" name="bos" placeholder="Business/Office/School Address">
+                                            <input type="text" class="form-control input-lg" name="bos_address" placeholder="Business/Office/School Address" value="{{ old('bos_address') }}" required>
                                         </div>
+                                        @error('bos_address')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="form-group">
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" name="occupation" placeholder="Occupation">
+                                            <input type="text" class="form-control input-lg" name="occupation" placeholder="Occupation" value="{{ old('occupation') }}" required>
                                         </div>
+                                        @error('occupation')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -206,24 +217,39 @@
                                         <label>When should we visit you?</label>
                                         <div class="input-group date nk-int-st">
                                             <span class="input-group-addon"></span>
-                                            <input type="text" class="form-control input-lg" name="visit" value="03/19/2018">
+                                            <input type="text" class="form-control input-lg" name="visit" placeholder="07/22/2022" value="{{ old('visit') }}" required>
                                         </div>
+                                        @error('visit')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
                                         <label>Mobile Number</label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" name="mobile" placeholder="Enter Phone Number">
+                                            <input type="text" class="form-control input-lg" name="phone" placeholder="Enter Phone Number" value="{{ old('phone') }}" required>
                                         </div>
+                                        @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                     <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
                                         <label>Email address</label>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control input-lg" name="email" placeholder="Enter Email">
+                                            <input type="text" class="form-control input-lg" name="email" placeholder="Enter Email" value="{{ old('email') }}" required>
                                         </div>
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -231,8 +257,13 @@
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control input-lg" name="invited" placeholder="Invited by...">
+                                        <input type="text" class="form-control input-lg" name="invitedBy" placeholder="Invited by..." value="{{ old('invitedBy') }}" required>
                                     </div>
+                                    @error('invitedBy')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                 </div>
                             </div>
                         </div> <br>
@@ -364,34 +395,7 @@
     </div>
     <!-- Form Element area End-->
     @include('layouts.footer')
-    <!-- jquery
-		============================================ -->
-    <script src="js/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-         <!-- bootstrap select JS
-		============================================ -->
-    <script src="js/bootstrap-select/bootstrap-select.js"></script>
-         <!-- meanmenu JS
-		============================================ -->
-    <script src="js/meanmenu/jquery.meanmenu.js"></script>
-    <!-- autosize JS
-		============================================ -->
-        <script src="js/autosize.min.js"></script>
-          <!-- Data Table JS
-		============================================ -->
-    <script src="js/data-table/jquery.dataTables.min.js"></script>
-    <script src="js/data-table/data-table-act.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="js/main.js"></script>
-     <!-- datapicker JS
-		============================================ -->
-        <script src="js/datapicker/bootstrap-datepicker.js"></script>
-        <script src="js/datapicker/datepicker-active.js"></script>
+   
 </body>
 
 </html>
